@@ -22,10 +22,19 @@ it('should get all settings that have specific tag', async () => {
     const res = await axiosP1.get(uri)
 })
 
-// method #1 - Search any element of array
+// method #2 - Search any element of array
 it('should get all settings that have specific tag', async () => {
     const tags = ["apple", "social"]
     const query = { tags: {$in: tags} }
+
+    const uri =`${url}?query=${JSON.stringify(query)}`
+    const res = await axiosP1.get(uri)
+})
+
+// method #3 - Search all elements of array
+it.only('should get all settings that contains all tags', async () => {
+    const tags = [apple", "social"]
+    const query = { tags: {$all: tags} }
 
     const uri =`${url}?query=${JSON.stringify(query)}`
     const res = await axiosP1.get(uri)
