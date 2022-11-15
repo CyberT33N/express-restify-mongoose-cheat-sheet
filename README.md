@@ -40,3 +40,11 @@ it.only('should get all settings that contains all tags', async () => {
     const res = await axiosP1.get(uri)
 })
 ```
+
+
+<br><br>
+
+## Only reply with documents between dates
+```javascript
+api/test/modelName?query={"$and" : [{"_createdAt": {"$gt" : "2022-11-02T08:35:27.000Z"}},{"_createdAt": {"$lt" : "2022-11-08T08:35:27.000Z"}}]}
+```
